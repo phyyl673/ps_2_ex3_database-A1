@@ -1,0 +1,6 @@
+# Ignore data files
+*.csv
+*.sqlite
+
+# Ignore Kaggle credentials
+.kaggle/

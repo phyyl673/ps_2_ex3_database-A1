@@ -1,13 +1,19 @@
 name: nba
 channels:
-  - defaults
+  - conda-forge
 dependencies:
-  - polars
+  - python=3.11
   - pandas
+  - polars
   - duckdb
-  - kaggle
-  - sqlite
+  - numpy
+  - matplotlib
   - seaborn
-  - pre-commit
+  - sqlite
+  - jupyterlab
   - ipykernel
-  - click
+  - pip
+  - pip:
+      - kaggle
+      - pre-commit
+      - click

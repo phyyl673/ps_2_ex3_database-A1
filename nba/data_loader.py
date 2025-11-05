@@ -70,9 +70,33 @@ def main(
     user_name: str | None = None,
     api_key: str | None = None,
 ) -> None:
+    """
+    Main entry point for the command-line interface.
+
+    Parameters:
+        dataset (str): The Kaggle dataset identifier to download.
+        user_name (str | None): Your Kaggle username. If provided along with `api_key`,
+                                the function will create or update ~/.kaggle/kaggle.json.
+        api_key (str | None): Kaggle API key used for authentication.
+
+    This function uses `click` to parse command-line arguments and trigger the
+    download process. By calling `main()` only under `if __name__ == "__main__":`,
+    the script will not execute automatically if imported elsewhere.
+    """
     kaggle_api_key(user_name=user_name, api_key=api_key)
     kaggle_download_data(dataset=dataset)
 
 
 if __name__ == "__main__":
+    """
+    This ensures that the main() function is only executed when the file data_loader.py is run directly from the command line.
+    If the file is imported as a module in another script, this block will not run.
+    It allows the script to function both as a standalone program and as an importable module without unintended execution.
+    """
     main()
+
+
+#The click package turns the Python script into a command-line interface tool.
+#It allows us to define command-line options such as -u, -k, and -d using decorators.
+#click automatically parses the arguments, checks required inputs, provides help messages, 
+# and calls the main() function with the values supplied by the user.
